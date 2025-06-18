@@ -1,0 +1,30 @@
+# Fichier .editorconfig
+# Permet de maintenir une cohérence de style de code entre différents éditeurs
+
+# Configuration globale pour tous les fichiers
+root = true
+
+[*]
+# Encoded en UTF-8 (encodage standard pour la plupart des fichiers)
+charset = utf-8
+
+# Style de fin de ligne (lf pour Linux/macOS, crlf pour Windows)
+# Étant donné que vous êtes sur WSL, 'lf' est généralement le meilleur choix pour les fichiers Linux.
+end_of_line = lf
+
+# Insérer un caractère de nouvelle ligne à la fin du fichier
+insert_final_newline = true
+
+# Supprimer les espaces en trop à la fin des lignes
+trim_trailing_whitespace = true
+
+# Configuration spécifique pour les fichiers JavaScript et MJS
+[*.{js,jsx,mjs,cjs,ts,tsx}]
+# Style d'indentation : espace
+indent_style = space
+# Taille de l'indentation : 2 espaces (correspond à vos erreurs ESLint précédentes)
+indent_size = 2
+
+# Configuration spécifique pour les fichiers Markdown (optionnel, mais bonne pratique)
+[*.md]
+trim_trailing_whitespace = false
