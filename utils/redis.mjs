@@ -43,8 +43,7 @@ class RedisClient {
         }
         return resolve(reply);
       });
-    }
-    );
+    });
   }
 
   async del(key) {
@@ -57,7 +56,7 @@ class RedisClient {
         return resolve(reply);
       });
     });
-  };
+  }
 }
 
 const redisClient = new RedisClient();
