@@ -4,16 +4,16 @@ class RedisClient {
   constructor() {
     this.client = redis.createClient();
     this.connected = false;
-    this.client.on("connect", () => {
+    this.client.on('connect', () => {
       this.connected = true;
-      console.log("Connected to Redis");
+      console.log('Connected to Redis');
     });
-    this.client.on("error", (err) => {
+    this.client.on('error', (err) => {
       console.error(`Redis error: ${err.message}`);
       this.connected = false;
     });
-    this.client.on("end", () => {
-      console.log("Redis connection closed");
+    this.client.on('end', () => {
+      console.log('Redis connection closed');
       this.connected = false;
     });
   }
@@ -23,14 +23,13 @@ class RedisClient {
   }
 
   async get(key) {
-
     return new Promise((resolve, reject) => {
       this.client.get(key, (err, value) => {
         if (err) {
           console.error(`Error getting key ${key}: ${err.message}`);
           return reject(err);
         }
-        resolve(value);
+        return resolve(value);
       });
     });
   }
@@ -42,7 +41,7 @@ class RedisClient {
           console.error(`Error setting key ${key}: ${err.message}`);
           return reject(err);
         }
-        resolve(reply);
+        return resolve(reply);
       });
     }
     );
@@ -55,10 +54,10 @@ class RedisClient {
           console.error(`Error deleting key ${key}: ${err.message}`);
           return reject(err);
         }
-        resolve(reply);
+        return resolve(reply);
       });
     });
-  }
+  };
 }
 
 const redisClient = new RedisClient();
